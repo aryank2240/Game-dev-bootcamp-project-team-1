@@ -19,24 +19,25 @@ public class Movement : MonoBehaviour
         {
 
 
-        if(rb.position.x <= -shift-1){
-            Vector2 pos = new Vector2(rb.position.x + shift*(2.25f), rb.position.y);
-            rb.MovePosition(pos);
-        }
-        if(rb.position.x >= +shift+1){
-            Vector2 pos = new Vector2(rb.position.x - shift*(2.25f), rb.position.y);
-            rb.MovePosition(pos);
-        }
-
         float horizontalInput = 0f;
         float verticalInput = 0f;
         
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+
+            if(rb.position.x > +shift+1){
+            Vector2 pos = new Vector2(rb.position.x - shift * 2.5f, rb.position.y);
+            rb.MovePosition(pos);
+        }
             horizontalInput = 1f;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
+
+            if(rb.position.x < -shift-1){
+            Vector2 pos = new Vector2(rb.position.x + shift * 2.5f , rb.position.y);
+            rb.MovePosition(pos);
+        }
             horizontalInput = -1f;
         }
 
