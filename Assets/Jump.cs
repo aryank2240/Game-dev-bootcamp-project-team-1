@@ -13,7 +13,7 @@ public class Jump : MonoBehaviour
 
     void Start()
     {
-        OnGround = true;
+        OnGround = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
