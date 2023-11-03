@@ -5,8 +5,8 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     Rigidbody2D rb;
+    public float speed = 50f;
     bool OnGround = false;
-    public float JumpForce = 10f;
 
     // Start is called before the first frame update
     
@@ -20,9 +20,14 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(rb.position.y < -6.5){
+            Game_end.game_over = 1;
+        }
         if (Input.GetKey(KeyCode.Space) && OnGround )
         {
-            rb.AddForce(Vector3.up * JumpForce);
+            rb.velocity = Vector2.up * speed;
+
+            OnGround = false;
         }
 
         //}
@@ -36,11 +41,4 @@ public class Jump : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            OnGround = false;
-        }
-    }
 }
