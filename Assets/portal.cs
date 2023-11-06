@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    public GameObject pf;
     public Rigidbody2D own;
     public GameObject player;
     public GameObject portal1;
@@ -15,6 +16,7 @@ public class Portal : MonoBehaviour
     
     void Start(){
         own = GetComponent<Rigidbody2D>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +28,7 @@ public class Portal : MonoBehaviour
             player.SetActive(false);
             portal1.transform.position = new Vector3(-2, -30,10);
             Invoke("reappear",3);
+
         
         }
     }
@@ -36,6 +39,9 @@ public class Portal : MonoBehaviour
         portal2.transform.position = new Vector3(-2, 0,10);
         player.transform.position = new Vector3(-2, 0,10);
         portal2.SetActive(true);
+        Invoke("PF", 1);
+        Invoke("PF2", 1);
+        pf.SetActive(true);
         rb.velocity=new Vector2(0f,5f);
         
         Vector2 post = new Vector2(rb.position.x + 8 * 2.5f , -3);
@@ -43,6 +49,7 @@ public class Portal : MonoBehaviour
         Game_end.active_portal = false;
         Invoke("Finish",1);
     }
-
-    void Finish(){portal2.SetActive(false);}
+    void PF() { pf.SetActive(true); }
+    public void PF2() { pf.SetActive(false);}
+void Finish(){portal2.SetActive(false);}
 }
