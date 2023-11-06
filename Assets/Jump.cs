@@ -9,8 +9,8 @@ public class Jump : MonoBehaviour
     bool OnGround = false;
 
     // Start is called before the first frame update
-    
 
+    [SerializeField] public AudioSource jp;
     void Start()
     {
         OnGround = false;
@@ -25,9 +25,11 @@ public class Jump : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space) && OnGround )
         {
+            jp.Play();
             rb.velocity = Vector2.up * speed;
 
             OnGround = false;
+            
         }
 
         //}

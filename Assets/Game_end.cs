@@ -9,5 +9,5 @@ public static class Game_end
 
     public static Random rnd = new Random();
     public static int score=0;
-    public static int portal_probability = 1;
+    public static int portal_probability = 7;
 }

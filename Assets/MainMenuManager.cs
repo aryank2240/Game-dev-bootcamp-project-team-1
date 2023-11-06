@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject instructionsPanel; // Reference to the instructions panel GameObject
+    public GameObject instructionsPanel;
+     // Reference to the instructions panel GameObject
 
     void Start()
     {
@@ -31,16 +32,22 @@ public class MainMenuManager : MonoBehaviour
 
     public void ShowInstructions()
     {
+        
+
         // Show the instructions panel
         instructionsPanel.SetActive(true);
     }
 
     public void QuitGame()
     {
+
         // Quit the game (only works in standalone builds)
         Application.Quit();
     }
      public void Next(){
+        
         SceneManager.LoadScene(2);
     }
+    
+
 }
